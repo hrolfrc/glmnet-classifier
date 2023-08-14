@@ -101,19 +101,14 @@ class GlmnetClassifier(ClassifierMixin, BaseEstimator):
         self.n_features_in_ = X.shape[1]
         self.classes_ = unique_labels(y)
         self.X_ = np.asarray(X, dtype='float64')
-
-        # if all(isinstance(c, str) for c in self.classes_):
-        #     from sklearn import preprocessing
-        #     le = preprocessing.LabelEncoder()
-        #     y = le.fit(y).transform(y)
-
         self.y_ = np.asarray(y, dtype='float64')
 
         # given the task is classification, it would seem that
-        # family = 'binomial', ptype = 'class' would be best,
-        # however, using family = 'gaussian', ptype = 'mse'
-        # improves score and appears to be faster.
+        # using the recommended family = 'binomial', ptype = 'class'
+        # would be best, however, using family = 'gaussian', ptype = 'mse'
+        # improves score and appears to run faster.
         start = time.time()
+
         self.cvfit_ = cvglmnet(
             x=self.X_.copy(),
             y=self.y_.copy(),
@@ -126,7 +121,6 @@ class GlmnetClassifier(ClassifierMixin, BaseEstimator):
 
         self.fit_time_ = time.time() - start
         self.coef_ = cvglmnetCoef(self.cvfit_, s='lambda_min')
-
         self.is_fitted_ = True
         return self
 

@@ -26,6 +26,10 @@ Note that setup is deprecated and a replacement method is needed.
 
 6. Upload to pip: twine upload dist/*
 
+To build and use GLMnet.so:
+The best practice to wrap Fortran code in Python,
+is to export it to C first (see above) and then write this Cython code:
+https://www.fortran90.org/src/best-practices.html#c-interface
 
 """
 

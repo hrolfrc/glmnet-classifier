@@ -31,13 +31,18 @@ Note that setup is deprecated and a replacement method is needed.
 
 import codecs
 
-from setuptools import find_packages, setup
+
+import os, sys
+from setuptools import setup, find_packages
+
+cmd = 'gfortran ./glment-classifier/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet-classifier/GLMnet.so'
+os.system(cmd)
 
 # noinspection PyProtectedMember
 from glmnet_classifier import _version
 
 DISTNAME = 'glmnet_classifier'
-DESCRIPTION = 'A classifier that endeavors to solve the saddle point problem for AUC maximization.'
+DESCRIPTION = 'A binomial classifier based on glmnet'
 with codecs.open('README.rst', encoding='utf-8-sig') as f:
     LONG_DESCRIPTION = f.read()
 MAINTAINER = 'Carlson Research, LLC'
@@ -51,7 +56,7 @@ CLASSIFIERS = ['Intended Audience :: Science/Research',
                'Intended Audience :: Developers',
                'Topic :: Scientific/Engineering :: Artificial Intelligence',
                'Topic :: Scientific/Engineering :: Mathematics',
-               'Development Status :: 3 - Alpha',
+               'Development Status :: 2 - Pre-Alpha',
                'License :: OSI Approved',
                'Topic :: Scientific/Engineering',
                'Operating System :: OS Independent',
@@ -82,5 +87,6 @@ setup(name=DISTNAME,
       zip_safe=False,  # the package can run out of an .egg file
       classifiers=CLASSIFIERS,
       packages=find_packages(),
+      package_data={'glmnet-classifier': ['*.so', 'glmnet-classifier/*.so']},
       install_requires=INSTALL_REQUIRES,
       extras_require=EXTRAS_REQUIRE)

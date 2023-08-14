@@ -6,13 +6,6 @@ Author: Rolf Carlson, Carlson Research, LLC <hrolfrc@gmail.com>
 License: 3-clause BSD
 ===============================================================
 
-Implements F in:
-
-Natole Jr, Michael & Ying, Yiming & Lyu, Siwei. (2019).
-Stochastic AUC Optimization Algorithms With Linear Convergence.
-Frontiers in Applied Mathematics and Statistics. 5. 10.3389/fams.2019.00030.
-https://www.frontiersin.org/articles/10.3389/fams.2019.00030/full#B5
-
 """
 import time
 
@@ -28,7 +21,7 @@ from glmnet_python import cvglmnetPredict
 
 # noinspection PyAttributeOutsideInit
 class GlmnetClassifier(ClassifierMixin, BaseEstimator):
-    """ The GlmnetClassifier (Saddle Point Problem for AUC Maximization) classifier
+    """ The GlmnetClassifier
 
     Attributes
     ----------
@@ -109,24 +102,28 @@ class GlmnetClassifier(ClassifierMixin, BaseEstimator):
         self.classes_ = unique_labels(y)
         self.X_ = np.asarray(X, dtype='float64')
 
-        # from sklearn import preprocessing
-        # le = preprocessing.LabelEncoder()
-        # y = le.fit(y).transform(y)
+        # if all(isinstance(c, str) for c in self.classes_):
+        #     from sklearn import preprocessing
+        #     le = preprocessing.LabelEncoder()
+        #     y = le.fit(y).transform(y)
 
         self.y_ = np.asarray(y, dtype='float64')
-        # # print('y is ', self.y_)
-        # if len(self.classes_) > 1:
 
+        # given the task is classification, it would seem that
+        # family = 'binomial', ptype = 'class' would be best,
+        # however, using family = 'gaussian', ptype = 'mse'
+        # improves score and appears to be faster.
         start = time.time()
         self.cvfit_ = cvglmnet(
             x=self.X_.copy(),
             y=self.y_.copy(),
             alpha=self.alpha,
-            family='binomial',
-            ptype='class',
+            family='gaussian',
+            ptype='mse',
             nlambda=100,
             parallel=True
         )
+
         self.fit_time_ = time.time() - start
         self.coef_ = cvglmnetCoef(self.cvfit_, s='lambda_min')
 

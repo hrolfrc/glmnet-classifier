@@ -1,9 +1,6 @@
 .. -*- mode: rst -*-
 
-|CircleCI|_ |ReadTheDocs|_
-
-.. |CircleCI| image:: https://circleci.com/gh/hrolfrc/glmnet_classifier.svg?style=shield
-.. _CircleCI: https://circleci.com/gh/hrolfrc/glmnet_classifier
+|ReadTheDocs|_
 
 .. |ReadTheDocs| image:: https://readthedocs.org/projects/glmnet_classifier/badge/?version=latest
 .. _ReadTheDocs: https://glmnet_classifier.readthedocs.io/en/latest/?badge=latest
@@ -11,7 +8,7 @@
 GlmnetClassifier
 #####################################
 
-An AUC optimizing binomial classifier.
+A binomial classifier based on glmnet.
 
 Contact
 ------------------
@@ -26,15 +23,13 @@ Use pip to install glmnet_classifier.
 
 Introduction
 ------------------
-This is a python implementation of a classifier that approximates the solution to the `saddle point problem for AUC maximization`_. [1]
+This is a python implementation of a classifier that is based on glmnet. [1]  A fortran compiler is required.
 
-GlmnetClassifier provides classification and prediction for two classes, the binomial case.  Small to medium problems are supported.  This is research code and a work in progress.
+GlmnetClassifier provides classification and prediction for two classes, the binomial case.
 
 GlmnetClassifier is designed for use with scikit-learn_ pipelines and composite estimators.
 
 .. _scikit-learn: https://scikit-learn.org
-
-.. _`saddle point problem for AUC maximization`: https://www.frontiersin.org/articles/10.3389/fams.2019.00030/full
 
 Example
 ===========
@@ -82,9 +77,22 @@ Get the score on unseen data
 
     1.0
 
+Authors
+-----------------
+The authors of glmnet are Jerome Friedman, Trevor Hastie, Rob Tibshirani and Noah Simon. The Python package, glmnet_py_, is maintained by B. J. Balakumar.
+
+The glmnet-classifier package adapts glmnet_py_ and was written by Rolf Carlson.
+
+.. _glmnet_py: https://pypi.org/project/glmnet-py/
+
 
 References
 ------------------
-[1] Natole Jr, Michael & Ying, Yiming & Lyu, Siwei. (2019).
-Stochastic AUC Optimization Algorithms With Linear Convergence.
-Frontiers in Applied Mathematics and Statistics. 5. 10.3389/fams.2019.00030.
+References
+Jerome Friedman, Trevor Hastie and Rob Tibshirani. (2008). Regularization Paths for Generalized Linear Models via Coordinate Descent Journal of Statistical Software, Vol. 33(1), 1-22 Feb 2010.
+
+Noah Simon, Jerome Friedman, Trevor Hastie and Rob Tibshirani. (2011). Regularization Paths for Cox’s Proportional Hazards Model via Coordinate Descent Journal of Statistical Software, Vol. 39(5) 1-13.
+
+Robert Tibshirani, Jacob Bien, Jerome Friedman, Trevor Hastie, Noah Simon, Jonathan Taylor, Ryan J. Tibshirani. (2010). Strong Rules for Discarding Predictors in Lasso-type Problems Journal of the Royal Statistical Society: Series B (Statistical Methodology), 74(2), 245-266.
+
+Noah Simon, Jerome Friedman and Trevor Hastie (2013). A Blockwise Descent Algorithm for Group-penalized Multiresponse and Multinomial Regression

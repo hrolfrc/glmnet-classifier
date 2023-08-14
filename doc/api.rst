@@ -2,7 +2,7 @@
 GlmnetClassifier API
 ####################
 
-The GlmnetClassifier (Saddle Point Problem for AUC Maximization) API
+The GlmnetClassifier API
 
 .. currentmodule:: glmnet_classifier
 

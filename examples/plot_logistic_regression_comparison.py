@@ -22,7 +22,7 @@ from glmnet_classifier import GlmnetClassifier
 from sklearn import svm, datasets
 from sklearn.model_selection import GridSearchCV
 iris = datasets.load_iris()
-parameters = {'alpha': np.linspace(0.0, 1.0, 5)}
+parameters = {'alpha': np.linspace(0.0, 1.0, 20)}
 gnet = GlmnetClassifier()
 clf = GridSearchCV(gnet, parameters)
 
@@ -59,8 +59,10 @@ for _ in range(20):
     score[desc]['Accuracy'].append(acc)
 
     desc, search = 'GlmnetClassifier', GridSearchCV(gnet, parameters).fit(X_d, y_d)
-    auc = roc_auc_score(y_true=y_d, y_score=search.best_estimator_.predict_proba(X_d)[:, 1])
-    acc = accuracy_score(y_true=y_d, y_pred=search.best_estimator_.predict(X_d))
+    # auc = roc_auc_score(y_true=y_d, y_score=search.best_estimator_.predict_proba(X_d)[:, 1])
+    # acc = accuracy_score(y_true=y_d, y_pred=search.best_estimator_.predict(X_d))
+    auc = roc_auc_score(y_true=y_d, y_score=search.predict_proba(X_d)[:, 1])
+    acc = accuracy_score(y_true=y_d, y_pred=search.predict(X_d))
     score[desc]['AUC'].append(auc)
     score[desc]['Accuracy'].append(acc)
 
@@ -81,7 +83,7 @@ xdata = np.arange(len(score['Logit']['AUC']))
 axs[0].plot(xdata, score['Logit']['AUC'], label='LogisticRegressionCV')
 axs[0].plot(xdata, score['GlmnetClassifier']['AUC'], label='GlmnetClassifier')
 
-axs[0].set_title('Comparison of Calf and LogisticRegressionCV')
+axs[0].set_title('Comparison of GlmnetClassifier and LogisticRegressionCV')
 axs[0].set_ylabel('AUC')
 axs[0].legend()
 

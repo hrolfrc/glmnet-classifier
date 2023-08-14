@@ -23,7 +23,7 @@ Use pip to install glmnet_classifier.
 
 Introduction
 ------------------
-This is a python implementation of a classifier that is based on glmnet. [1]  A fortran compiler is required.
+This is a python implementation of a classifier that is based on glmnet.  A fortran compiler is required.
 
 GlmnetClassifier provides classification and prediction for two classes, the binomial case.
 
@@ -81,7 +81,7 @@ Authors
 -----------------
 The authors of glmnet are Jerome Friedman, Trevor Hastie, Rob Tibshirani and Noah Simon. The Python package, glmnet_py_, is maintained by B. J. Balakumar.
 
-The glmnet-classifier package adapts glmnet_py_ and was written by Rolf Carlson.
+The glmnet-classifier package was written by Rolf Carlson, as an adaptation of glmnet_py_.
 
 .. _glmnet_py: https://pypi.org/project/glmnet-py/
 

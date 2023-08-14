@@ -87,6 +87,6 @@ setup(name=DISTNAME,
       zip_safe=False,  # the package can run out of an .egg file
       classifiers=CLASSIFIERS,
       packages=find_packages(),
-      package_data={'glmnet-classifier': ['*.so', 'glmnet-classifier/*.so']},
+      package_data={'glmnet-classifier': ['*.so', 'glmnet_classifier/*.so']},
       install_requires=INSTALL_REQUIRES,
       extras_require=EXTRAS_REQUIRE)

@@ -35,7 +35,7 @@ import codecs
 import os
 from setuptools import setup, find_packages
 
-cmd = 'gfortran ./glmnet-classifier/glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet-classifier/glmnet_python/GLMnet.so'
+cmd = 'gfortran ./glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet_python/GLMnet.so'
 os.system(cmd)
 
 # noinspection PyProtectedMember
@@ -47,9 +47,9 @@ with codecs.open('README.rst', encoding='utf-8-sig') as f:
     LONG_DESCRIPTION = f.read()
 MAINTAINER = 'Carlson Research, LLC'
 MAINTAINER_EMAIL = 'hrolfrc@gmail.com'
-URL = 'https://github.com/hrolfrc/glmnet_classifier'
+URL = 'https://github.com/hrolfrc/glmnet-classifier'
 LICENSE = 'new BSD'
-DOWNLOAD_URL = 'https://github.com/hrolfrc/glmnet_classifier'
+DOWNLOAD_URL = 'https://github.com/hrolfrc/glmnet-classifier'
 VERSION = _version.__version__
 INSTALL_REQUIRES = ['numpy', 'scipy', 'scikit-learn']
 CLASSIFIERS = ['Intended Audience :: Science/Research',

@@ -2,14 +2,14 @@
 Quick Start
 #####################################
 
-SPPAM performs binomial classification.
+GlmnetClassifier performs binomial classification.
 
 Example
 ===========
 
 .. code:: ipython2
 
-    from sppam import SPPAM
+    from glmnet_classifier import GlmnetClassifier
     from sklearn.datasets import make_classification
     from sklearn.model_selection import train_test_split
 
@@ -34,7 +34,7 @@ Train the classifier
 
 .. code:: ipython2
 
-    cls = SPPAM().fit(X_train, y_train)
+    cls = GlmnetClassifier().fit(X_train, y_train)
 
 Get the score on unseen data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

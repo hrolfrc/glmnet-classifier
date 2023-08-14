@@ -1,4 +1,4 @@
-""" SPPAM tests
+""" GlmnetClassifier tests
 
 ===============================================================
 Author: Rolf Carlson, Carlson Research, LLC <hrolfrc@gmail.com>
@@ -9,7 +9,7 @@ License: 3-clause BSD
 import pytest
 from sklearn.datasets import load_iris
 
-from sppam import SPPAM
+from glmnet_classifier import GlmnetClassifier
 
 
 @pytest.fixture
@@ -17,9 +17,9 @@ def data():
     return load_iris(return_X_y=True)
 
 
-def test_SPPAM(data):
+def test_GlmnetClassifier(data):
     X, y = data
-    clf = SPPAM()
+    clf = GlmnetClassifier()
 
     clf.fit(X, y)
     assert hasattr(clf, 'classes_')

@@ -1,10 +1,10 @@
 ####################
-SPPAM API
+GlmnetClassifier API
 ####################
 
-The SPPAM (Saddle Point Problem for AUC Maximization) API
+The GlmnetClassifier (Saddle Point Problem for AUC Maximization) API
 
-.. currentmodule:: sppam
+.. currentmodule:: glmnet_classifier
 
 
 Classifier
@@ -14,4 +14,4 @@ Classifier
    :toctree: generated/
    :template: class.rst
 
-    SPPAM
+    GlmnetClassifier

@@ -2,7 +2,7 @@
 
 
 ```python
-from sppam import SPPAM
+from glmnet_classifier import GlmnetClassifier
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 ```
@@ -26,7 +26,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=seed)
 #### Train the classifier
 
 ```python
-cls = SPPAM().fit(X_train, y_train)
+cls = GlmnetClassifier().fit(X_train, y_train)
 ```
 
 #### Get the score on unseen data

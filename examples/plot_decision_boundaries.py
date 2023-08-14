@@ -3,9 +3,9 @@
 Decision boundaries
 ==========================================
 
-We can `compare`_ SPPAM with the nearest neighbor and linear SVM classifiers.
+We can `compare`_ GlmnetClassifier with the nearest neighbor and linear SVM classifiers.
 The comparisons are on synthetic data sets to help gain intuition for the decision
-boundaries formed by SPPAM on several data challenges.
+boundaries formed by GlmnetClassifier on several data challenges.
 
 .. _compare: https://scikit-learn.org/stable/auto_examples/classification/plot_classifier_comparison.html
 
@@ -22,17 +22,17 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
-from sppam import SPPAM
+from glmnet_classifier import GlmnetClassifier
 
 names = [
-    "SPPAM",
+    "GlmnetClassifier",
     "Linear SVM",
     "Nearest Neighbors"
 ]
 
 classifiers = [
 
-    SPPAM(),
+    GlmnetClassifier(),
     SVC(kernel="linear", C=0.025),
     KNeighborsClassifier(3)
 ]

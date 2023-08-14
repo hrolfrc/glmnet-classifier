@@ -32,10 +32,10 @@ Note that setup is deprecated and a replacement method is needed.
 import codecs
 
 
-import os, sys
+import os
 from setuptools import setup, find_packages
 
-cmd = 'gfortran ./glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet_python/GLMnet.so'
+cmd = 'gfortran ./glmnet-classifier/glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet-classifier/glmnet_python/GLMnet.so'
 os.system(cmd)
 
 # noinspection PyProtectedMember

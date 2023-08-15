@@ -58,12 +58,10 @@ VERSION = _version.__version__
 INSTALL_REQUIRES = ['numpy', 'scipy', 'scikit-learn']
 CLASSIFIERS = ['Intended Audience :: Science/Research',
                'Intended Audience :: Developers',
-               'Topic :: Scientific/Engineering :: Artificial Intelligence',
-               'Topic :: Scientific/Engineering :: Mathematics',
                'Development Status :: 2 - Pre-Alpha',
                'License :: OSI Approved',
                'Topic :: Scientific/Engineering',
-               'Operating System :: OS Independent',
+               'Operating System :: Unix',
                'Programming Language :: Python :: 3']
 
 EXTRAS_REQUIRE = {
@@ -91,6 +89,6 @@ setup(name=DISTNAME,
       zip_safe=False,  # the package can run out of an .egg file
       classifiers=CLASSIFIERS,
       packages=find_packages(),
-      package_data={'glmnet-classifier': ['*.so', 'glmnet_classifier/*.so']},
+      package_data={"": ['*.so', './glmnet_classifier/*.so']},
       install_requires=INSTALL_REQUIRES,
       extras_require=EXTRAS_REQUIRE)

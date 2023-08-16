@@ -19,13 +19,11 @@ Install
 ------------------
 Use pip to install glmnet_classifier.
 
-``pip install glmnet_classifier``
+``pip install glmnet-classifier``
 
 Introduction
 ------------------
-This is a python implementation of a classifier that is based on glmnet.  A fortran compiler is required.
-
-GlmnetClassifier provides classification and prediction for two classes, the binomial case.
+The glmnet-classifier project provides GlmnetClassifier for the classification and prediction for two classes, the binomial case.  GlmnetClassifier is based on glmnet. A fortran compiler is required.
 
 GlmnetClassifier is designed for use with scikit-learn_ pipelines and composite estimators.
 

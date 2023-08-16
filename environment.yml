@@ -1,5 +1,13 @@
-name: project-template
+name: glmnet-classifier
 dependencies:
   - numpy
   - scipy
   - scikit-learn
+  - pandas
+  - matplotlib
+  - sphinx
+  - sphinx_rtd_theme
+  - numpydoc
+  - pillow
+  - sphinx-gallery
+  - gfortran

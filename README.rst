@@ -1,10 +1,5 @@
 .. -*- mode: rst -*-
 
-|ReadTheDocs|_
-
-.. |ReadTheDocs| image:: https://readthedocs.org/projects/glmnet_classifier/badge/?version=latest
-.. _ReadTheDocs: https://glmnet_classifier.readthedocs.io/en/latest/?badge=latest
-
 GlmnetClassifier
 #####################################
 

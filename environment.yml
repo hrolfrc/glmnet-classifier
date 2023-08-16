@@ -1,4 +1,7 @@
 name: glmnet-classifier
+channels:
+  - conda-forge
+  - defaults
 dependencies:
   - numpy
   - scipy

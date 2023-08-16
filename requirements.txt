@@ -12,3 +12,4 @@ sphinx-gallery
 sphinx_rtd_theme
 numpydoc
 pandas
+gfortran_linux-64

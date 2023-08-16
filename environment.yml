@@ -13,4 +13,4 @@ dependencies:
   - numpydoc
   - pillow
   - sphinx-gallery
-  - gfortran
+  - gfortran_linux-64

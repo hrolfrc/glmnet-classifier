@@ -12,7 +12,7 @@ Rolf Carlson hrolfrc@gmail.com
 
 Install
 ------------------
-Use pip to install glmnet_classifier.
+Use pip to install glmnet-classifier.
 
 ``pip install glmnet-classifier``
 

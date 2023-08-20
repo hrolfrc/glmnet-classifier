@@ -39,8 +39,8 @@ import codecs
 import os
 from setuptools import setup, find_packages
 
-cmd = 'gfortran ./glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet_python/GLMnet.so'
-os.system(cmd)
+# cmd = 'gfortran ./glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet_python/GLMnet.so'
+# os.system(cmd)
 
 # noinspection PyProtectedMember
 from glmnet_classifier import _version

@@ -9,9 +9,12 @@ jobs:
       - run:
           name: install dependencies
           command: |
-            sudo apt-get update
-            sudo apt-get install gfortran
-            gfortran ./glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet_python/GLMnet.so
+            # build GLMnet.so every time
+            #
+            sudo apt-get update -y && sudo apt-get install gfortran-11 -y
+            gfortran-11 ./glmnet_python/GLMnet.f -fPIC -fdefault-real-8 -shared -o ./glmnet_python/GLMnet.so
+            #
+            # install conda environment
             wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
             chmod +x miniconda.sh && ./miniconda.sh -b -p ~/miniconda
             export PATH="~/miniconda/bin:$PATH"

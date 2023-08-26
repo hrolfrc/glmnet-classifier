@@ -1,8 +1,8 @@
 """
 
-===========================
+================================
 GlmnetClassifier comparison plot
-===========================
+================================
 
 A classifier comparison plot including :class:`GlmnetClassifier`
 """

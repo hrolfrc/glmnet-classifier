@@ -43,7 +43,7 @@ os.system(cmd)
 # noinspection PyProtectedMember
 from glmnet_classifier import _version
 
-DISTNAME = 'glmnet_classifier'
+DISTNAME = 'glmnet-classifier'
 DESCRIPTION = 'A binomial classifier based on glmnet'
 with codecs.open('README.rst', encoding='utf-8-sig') as f:
     LONG_DESCRIPTION = f.read()

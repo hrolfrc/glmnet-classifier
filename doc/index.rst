@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to glmnet_classifier's documentation!
-============================================
+=============================================
 
 This project develops the GlmnetClassifier classifier.
 

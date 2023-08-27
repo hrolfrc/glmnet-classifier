@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-|CircleCI|_ |ReadTheDocs|_
+|CircleCI|_
 
 .. |CircleCI| image:: https://circleci.com/gh/hrolfrc/glmnet-classifier.svg?style=shield
 .. _CircleCI: https://circleci.com/gh/hrolfrc/glmnet-classifier

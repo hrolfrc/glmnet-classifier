@@ -1,4 +1,12 @@
 version: 2.1
+
+workflows:
+  my-workflow:
+    jobs:
+      - build_test:
+          context:
+            - twine
+
 jobs:
   build_test:
     docker:
@@ -40,8 +48,3 @@ jobs:
       - store_artifacts:
           path: ~/log.txt
       - run: ls -ltrh doc/_build/html
-workflows:
-  version: 2
-  workflow:
-    jobs:
-      - build_test

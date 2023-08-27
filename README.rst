@@ -5,9 +5,6 @@
 .. |CircleCI| image:: https://circleci.com/gh/hrolfrc/glmnet-classifier.svg?style=shield
 .. _CircleCI: https://circleci.com/gh/hrolfrc/glmnet-classifier
 
-.. |ReadTheDocs| image:: https://readthedocs.org/projects/glmnet-classifier/badge/?version=latest
-.. _ReadTheDocs: https://glmnet-classifier.readthedocs.io/en/latest/?badge=latest
-
 GlmnetClassifier
 #####################################
 

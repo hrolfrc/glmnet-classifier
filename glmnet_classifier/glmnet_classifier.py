@@ -13,6 +13,7 @@ import numpy as np
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.multiclass import unique_labels
 from sklearn.utils.validation import check_X_y, check_array, check_is_fitted
+from scipy.sparse import issparse
 
 from glmnet_python import cvglmnet
 from glmnet_python import cvglmnetCoef
@@ -97,17 +98,22 @@ class GlmnetClassifier(ClassifierMixin, BaseEstimator):
         if y is None:
             raise ValueError('requires y to be passed, but the target y is None')
 
-        X, y = check_X_y(X, y)
+        X, y = check_X_y(X, y, accept_sparse=True)
         self.n_features_in_ = X.shape[1]
         self.classes_ = unique_labels(y)
-        self.X_ = np.asarray(X, dtype='float64')
-        self.y_ = np.asarray(y, dtype='float64')
 
         # given the task is classification, it would seem that
         # using the recommended family = 'binomial', ptype = 'class'
         # would be best, however, using family = 'gaussian', ptype = 'mse'
         # improves score and appears to run faster.
         start = time.time()
+
+        if issparse(X):
+            self.X_ = X
+            self.y_ = y
+        else:
+            self.X_ = np.asarray(X, dtype='float64')
+            self.y_ = np.asarray(y, dtype='float64')
 
         self.cvfit_ = cvglmnet(
             x=self.X_.copy(),

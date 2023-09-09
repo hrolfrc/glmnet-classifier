@@ -234,8 +234,10 @@ SEE ALSO:
 """
 
 # import packages/methods
+import numpy as np
 from glmnetSet import glmnetSet
 from glmnetControl import glmnetControl
+from scipy.sparse import csr_array, csr_matrix, csc_matrix, issparse, isspmatrix_csc
 import scipy
 from elnet import elnet
 from lognet import lognet
@@ -243,19 +245,17 @@ from coxnet import coxnet
 from mrelnet import mrelnet
 from fishnet import fishnet
 
+
 def glmnet(*, x, y, family='gaussian', **options):
         
     # check inputs: make sure x and y are scipy, float64 arrays
-    # fortran order is not checked as we force a convert later 
-    if not( isinstance(x, scipy.sparse.csc.csc_matrix) ):
-        if not( isinstance(x, scipy.ndarray) and x.dtype == 'float64'):
-            raise ValueError('x input must be a scipy float64 ndarray')
+    # fortran order is not checked as we force a convert later
+    if issparse(x):
+        if not isspmatrix_csc(x):
+            x = csc_matrix(x)
     else:
-        if not (x.dtype == 'float64'):
-            raise ValueError('x input must be a float64 array')
-            
-    if not( isinstance(y, scipy.ndarray) and y.dtype == 'float64'):
-            raise ValueError('y input must be a scipy float64 ndarray')
+        if not (isinstance(x, np.ndarray) and x.dtype == 'float64'):
+            raise ValueError('x input must be a scipy float64 ndarray')
 
     # create options
     if options is None:

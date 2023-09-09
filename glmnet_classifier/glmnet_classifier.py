@@ -165,7 +165,7 @@ class GlmnetClassifier(ClassifierMixin, BaseEstimator):
             y_class = self.y_
         else:
             check_is_fitted(self, ['is_fitted_', 'X_', 'y_'])
-            X = check_array(X)
+            X = self._validate_data(X, accept_sparse="csr", reset=False)
             y_class = cvglmnetPredict(self.cvfit_, newx=X, s='lambda_1se', ptype='class').ravel()
             y_class = list(np.round(y_class).astype(int))
         return y_class
